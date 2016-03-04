@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <script data-main="index.js" type="text/javascript" src="lib/require.js"></script>
+    </head>
+<body>
+    <div class="container" style="padding-top: 30px;">
+    <span id="span" onclick = 'clickme(this)'>I am span</span>
+        <div data-bind="page: {id: 'start' , title : 'First Page'}">
+            you are currently viewing the content of first page. <br />
+            <a  href="#!/start/deep">first child</a><br />
+            <a  href="#!/start/second">second child</a><br />
+        <br />
+        <div data-bind="page: {id: 'deep', title : 'Second Page',role: 'start', source: 'views/test1.html'}">
+            you are currently viewing the content of first page inside First Page.
+            <br />
+            <a data-bind="page-href :'../second'" >Second Child</a>
+        </div>  
+        <div data-bind="page: {id: 'second', title : 'Second Page', source: 'views/test.html'}">
+            you are currently viewing the content of second page inside Second Page.
+            <br />
+            <a data-bind="page-href :'../deep'" >First Child</a>
+        </div>          
+        <br />
+        <br />
+        <br />
+        <a  href="#!/structure">Go to Structure</a>
+        </div>
+        <div data-bind="page: {id: 'structure', title : 'Second Page'}">
+            you are currently viewing the content of second page.<br />
+            <a  href="#!/start">Go to Start</a>
+        </div>
+    </div>
+</body>
+</html>
